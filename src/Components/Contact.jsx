@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
 const Contact = () => {
-    const [feedback, setFeedback] = useState('');  // State to manage user feedback
-
+    const [feedback, setFeedback] = useState('');
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -20,10 +19,10 @@ const Contact = () => {
         })
         .then(response => response.text())
         .then(result => {
-            setFeedback('Message sent successfully!');  // Show success feedback
+            setFeedback('Message sent successfully!');  
         })
         .catch(error => {
-            setFeedback('Failed to send message. Please try again.');  // Show error feedback
+            setFeedback('Failed to send message. Please try again.'); 
         });
     };
 
@@ -52,16 +51,16 @@ const Contact = () => {
                     required
                 ></textarea>
                 <button 
-                    className="bg-gradient-to-r from-blue-500 to-green-500 text-white p-3 rounded-full transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
+                    className="bg-gradient-to-r from-blue-500 to-green-500 text-white p-3 rounded-full 
+                    transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
                     type="submit"
                 >
                     Send Message
                 </button>
             </form>
-
-            {/* Feedback Message */}
             {feedback && (
-                <p className={`mt-4 p-2 text-center rounded ${feedback.includes('successfully') ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                <p className={`mt-4 p-2 text-center rounded ${feedback.includes('successfully') ? 
+                'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
                     {feedback}
                 </p>
             )}
